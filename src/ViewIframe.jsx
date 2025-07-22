@@ -14,19 +14,14 @@ const ViewIframe = () => {
   }, [id]);
 
   return (
-    <div style={{ textAlign: 'center', padding: '20px' }}>
-      <h1>360° Viewer</h1>
+    <div className="full-screen-iframe">
       {iframe ? (
-        <div style={{ width: '100%', height: '80vh' }}>
-          <iframe
-            src={iframe.url}
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            allowFullScreen
-            title="360 View"
-          ></iframe>
-        </div>
+        <iframe
+          src={iframe.url}
+          frameBorder="0"
+          allowFullScreen
+          title="360 View"
+        ></iframe>
       ) : (
         <p>Loading or not found</p>
       )}

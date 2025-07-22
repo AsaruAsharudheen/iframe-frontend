@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './Home.css'; // ✅ Make sure to import your CSS
 
 const Home = () => {
   const [iframes, setIframes] = useState([]);
@@ -13,22 +12,26 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
-      <h1>🌐 All 360° View Links</h1>
-      <Link to="/add" className="add-button">
-        Add New 360° URL
+    <div style={{ padding: '20px' }}>
+      <h1>All 360° Links</h1>
+      <Link to="/add">
+        <button>Add New 360° URL</button>
       </Link>
 
-      <div className="iframe-list">
+      <div style={{ marginTop: '20px' }}>
         {iframes.map(iframe => (
-          <div key={iframe._id} className="iframe-item">
-            <p className="iframe-link">
-              <strong>Share link:</strong>{' '}
-              <a href={`/view/${iframe.uniqueId}`} target="_blank" rel="noreferrer">
+          <div key={iframe._id} style={{ marginBottom: '20px' }}>
+            <p>
+              Share link:{' '}
+              <a
+                href={`/view/${iframe.uniqueId}`}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {window.location.origin}/view/{iframe.uniqueId}
               </a>
             </p>
-            <p className="iframe-url">{iframe.url}</p>
+            <p style={{ fontSize: '12px' }}>URL: {iframe.url}</p>
           </div>
         ))}
       </div>
