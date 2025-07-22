@@ -7,7 +7,8 @@ const ViewIframe = () => {
   const [iframe, setIframe] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/iframe/${id}`)
+    axios
+      .get(`https://iframe-backend.onrender.com/api/iframe/${id}`)
       .then(res => setIframe(res.data))
       .catch(err => console.error(err));
   }, [id]);

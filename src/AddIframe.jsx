@@ -7,7 +7,7 @@ const AddIframe = () => {
 
   const handleSave = async () => {
     if (!url) return alert('Enter a URL!');
-    const res = await axios.post('http://localhost:5000/api/iframe', { url });
+    const res = await axios.post('https://iframe-backend.onrender.com/api/iframe', { url });
     setLink(res.data.viewUrl);
     setUrl('');
   };
