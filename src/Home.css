@@ -1,70 +1,141 @@
-/* Home.css */
+/* Premium Home.css */
+
+:root {
+  --primary: #4f46e5;     /* Indigo-600 */
+  --primary-hover: #4338ca; /* Indigo-700 */
+  --background: #f9fafb;   /* Gray-50 */
+  --card-bg: #ffffff;
+  --text: #111827;         /* Gray-900 */
+  --text-light: #6b7280;   /* Gray-500 */
+  --border: #e5e7eb;       /* Gray-200 */
+}
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f8f9fa;
-  margin: 0;
-  padding: 0;
+  background-color: var(--background);
 }
 
 .home-container {
-  max-width: 800px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
 }
 
 .home-container h1 {
-  margin-bottom: 20px;
-  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.add-button-container {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .add-button {
-  display: inline-block;
-  background: #007bff;
+  padding: 12px 28px;
+  background-color: var(--primary);
   color: #fff;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  transition: background 0.2s;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
 }
 
 .add-button:hover {
-  background: #0056b3;
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.3);
 }
 
 .iframe-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  counter-reset: iframe-counter;
 }
 
-.iframe-item {
-  background: #f1f1f1;
-  padding: 15px 20px;
-  border-radius: 4px;
+.iframe-card {
+  position: relative;
+  padding: 24px 24px 24px 80px; /* space for number badge */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  counter-increment: iframe-counter;
 }
 
-.iframe-link {
-  margin: 0;
+.iframe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.iframe-card::before {
+  content: counter(iframe-counter);
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
   font-size: 16px;
+  font-weight: 600;
+  background-color: var(--primary);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
-.iframe-link a {
-  color: #007bff;
+.iframe-card p {
+  margin: 0;
+}
+
+.iframe-card a {
+  color: var(--primary);
   text-decoration: none;
+  word-break: break-all;
+  font-weight: 500;
 }
 
-.iframe-link a:hover {
+.iframe-card a:hover {
   text-decoration: underline;
 }
 
-.iframe-url {
-  margin: 8px 0 0;
-  font-size: 13px;
-  color: #555;
-  word-break: break-all;
+/* ====================
+   ✅ Responsive tweaks
+   ==================== */
+
+@media (max-width: 600px) {
+  .home-container {
+    padding: 30px 15px;
+  }
+
+  .home-container h1 {
+    font-size: 24px;
+  }
+
+  .add-button {
+    font-size: 14px;
+    padding: 10px 22px;
+  }
+
+  .iframe-card {
+    padding: 20px 20px 20px 70px;
+  }
+
+  .iframe-card::before {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
 }
