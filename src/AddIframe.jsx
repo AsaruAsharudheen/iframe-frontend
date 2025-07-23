@@ -14,7 +14,10 @@ const AddIframe = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post('https://iframe-backend.onrender.com/api/iframe', { url });
+      const res = await axios.post(
+        'https://iframe-backend.onrender.com/api/iframe',
+        { url }
+      );
       setLink(res.data.viewUrl);
       setUrl('');
     } catch (err) {
@@ -35,7 +38,8 @@ const AddIframe = () => {
         value={url}
         onChange={e => setUrl(e.target.value)}
       />
-      <br /><br />
+      <br />
+      <br />
       <button onClick={handleSave} disabled={loading}>
         {loading ? 'Saving...' : 'Save URL'}
       </button>
