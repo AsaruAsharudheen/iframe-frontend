@@ -1,13 +1,15 @@
-/* Premium Home.css */
+/* ========================
+   ✅ Premium Home.css
+   ======================== */
 
 :root {
-  --primary: #4f46e5;     /* Indigo-600 */
-  --primary-hover: #4338ca; /* Indigo-700 */
-  --background: #f9fafb;   /* Gray-50 */
+  --primary: #4f46e5;        /* Indigo-600 */
+  --primary-hover: #4338ca;  /* Indigo-700 */
+  --background: #f9fafb;     /* Gray-50 */
   --card-bg: #ffffff;
-  --text: #111827;         /* Gray-900 */
-  --text-light: #6b7280;   /* Gray-500 */
-  --border: #e5e7eb;       /* Gray-200 */
+  --text: #111827;           /* Gray-900 */
+  --text-light: #6b7280;     /* Gray-500 */
+  --border: #e5e7eb;         /* Gray-200 */
 }
 
 body {
@@ -25,13 +27,14 @@ body {
 .home-container h1 {
   text-align: center;
   margin-bottom: 30px;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .add-button-container {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .add-button {
@@ -44,38 +47,37 @@ body {
   font-size: 16px;
   font-weight: 500;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
 }
 
 .add-button:hover {
   background-color: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.25);
 }
 
 .iframe-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
-
   counter-reset: iframe-counter;
 }
 
 .iframe-card {
   position: relative;
-  padding: 24px 24px 24px 80px; /* space for number badge */
+  padding: 24px 24px 24px 80px; /* for the number badge */
   border: 1px solid var(--border);
   border-radius: 12px;
   background-color: var(--card-bg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
   counter-increment: iframe-counter;
 }
 
 .iframe-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  background-color: #ffffffee;
 }
 
 .iframe-card::before {
@@ -97,7 +99,13 @@ body {
 }
 
 .iframe-card p {
-  margin: 0;
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.iframe-card p:last-child {
+  margin-bottom: 0;
 }
 
 .iframe-card a {
@@ -105,10 +113,12 @@ body {
   text-decoration: none;
   word-break: break-all;
   font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .iframe-card a:hover {
   text-decoration: underline;
+  color: var(--primary-hover);
 }
 
 /* ====================
@@ -121,7 +131,7 @@ body {
   }
 
   .home-container h1 {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .add-button {
